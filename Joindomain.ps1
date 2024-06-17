@@ -1,7 +1,7 @@
 param (
     [string]$outParDomainFQDN,
     [string]$parDomainUsername,
-    [securestring]$parDomainPassword
+    [string]$parDomainPassword
 )
 
 # Convert secure string to plain text for use in PSCredential
