@@ -4,9 +4,11 @@ param (
     [securestring]$parDomainPassword
 )
 
-# Define domain credentials
-$securePassword = ConvertTo-SecureString $parDomainPassword -AsPlainText -Force
-$credential = New-Object System.Management.Automation.PSCredential($parDomainUsername, $securePassword)
+# Convert secure string to plain text for use in PSCredential
+$securePassword = $parDomainPassword | ConvertFrom-SecureString
+
+# Create credential object
+$credential = New-Object System.Management.Automation.PSCredential($parDomainUsername, (ConvertTo-SecureString $securePassword))
 
 # Join the domain
-Add-Computer -DomainName $DomainName -Credential $credential -Restart
+Add-Computer -DomainName $outParDomainFQDN -Credential $credential -Restart
