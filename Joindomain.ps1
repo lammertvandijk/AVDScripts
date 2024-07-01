@@ -1,11 +1,11 @@
 param (
-    [string]$outParDomainFQDN,
-    [string]$parDomainUsername,
-    [string]$parDomainPassword
+    [string]$domainServicesName,
+    [string]$ouPath,
+    [string]$domainUsername,
+    [string]$domainPassword
 )
 
-# Create the credential object
-$credential = New-Object System.Management.Automation.PSCredential($parDomainUsername, $parDomainPassword)
+$securePassword = ConvertTo-SecureString $domainPassword -AsPlainText -Force
+$credential = New-Object System.Management.Automation.PSCredential ($domainUsername, $securePassword)
 
-# Join the domain
-Add-Computer -DomainName $outParDomainFQDN -Credential $credential -Restart
+Add-Computer -DomainName $domainServicesName -OUPath $ouPath -Credential $credential -Restart
