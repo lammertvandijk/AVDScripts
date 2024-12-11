@@ -85,8 +85,8 @@ function validateKeyVaultAvailability {
 
 validateKeyVaultAvailability -KeyVaultName $KeyVaultName
 
-
-
+$DeploymentScriptOutputs = @{}
+$DeploymentScriptOutputs['result'] = $True
 
 
 
