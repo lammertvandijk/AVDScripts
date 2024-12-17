@@ -82,7 +82,7 @@ function validateKeyVaultAvailability {
 }
 
 validateKeyVaultAvailability -KeyVaultName $KeyVaultName
-
+Write-Output $output
 $DeploymentScriptOutputs = @{}
 $DeploymentScriptOutputs['KeyVaultAvailability'] = $output
 
