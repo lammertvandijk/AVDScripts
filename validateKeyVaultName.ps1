@@ -49,7 +49,7 @@ function validateKeyVaultAvailability {
     
 
     # Getting the token of your current session
-    $token = (Get-AzAccessToken -AsSecureString).Token
+    $token = (Get-AzAccessToken).Token
 
 
     #authorization header build (hash table)
