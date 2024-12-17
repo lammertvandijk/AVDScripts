@@ -79,14 +79,14 @@ function validateKeyVaultAvailability {
     } else {
          Write-Host "false"
     } 
-}
 
-validateKeyVaultAvailability -KeyVaultName $KeyVaultName
 Write-Output $output
 # Output the result in JSON format
 $output | ConvertTo-Json -Depth 2
-$DeploymentScriptOutputs = @{}
-$DeploymentScriptOutputs['KeyVaultAvailability'] = $output
+}
+
+validateKeyVaultAvailability -KeyVaultName $KeyVaultName
+
 
 
 
