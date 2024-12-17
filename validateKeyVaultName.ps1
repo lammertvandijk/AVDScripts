@@ -49,7 +49,7 @@ function validateKeyVaultAvailability {
     
 
     # Getting the token of your current session
-    $token = (Get-AzAccessToken).Token
+    $token = (Get-AzAccessToken -AsSecureString).Token
 
 
     #authorization header build (hash table)
@@ -64,7 +64,7 @@ function validateKeyVaultAvailability {
     }
 
     #Getting the SubscriptionId of the subscription currently in use
-    $subscriptionId = (Get-AzContext).Subscription.Id 
+    $subscriptionId = (Get-AzContext -AsSecureString).Subscription.Id 
 
     # build the uri 
     $uri = "https://management.azure.com/subscriptions/$subscriptionId/providers/Microsoft.KeyVault/checkNameAvailability?api-version=2022-07-01"
