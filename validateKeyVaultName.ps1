@@ -74,19 +74,17 @@ function validateKeyVaultAvailability {
 
 
     #response
-    if($response.Content -match "true"){
-        Write-Host "KeyVault Name available"
-        return $True
+    $output = if($response.Content -match "true"){
+        Write-Host "true"
     } else {
-         Write-Host "KeyVault Name unavailable"
-         return $False
-} 
+         Write-Host "false"
+    } 
 }
 
 validateKeyVaultAvailability -KeyVaultName $KeyVaultName
 
 $DeploymentScriptOutputs = @{}
-$DeploymentScriptOutputs['result'] = $True
+$DeploymentScriptOutputs['KeyVaultAvailability'] = $output
 
 
 
