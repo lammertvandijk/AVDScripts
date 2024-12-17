@@ -86,4 +86,4 @@ $DeploymentScriptOutputs = @{
 }
 
 # Output the result
-Write-Output ($DeploymentScriptOutputs | ConvertTo-Json -Depth 1)
+Write-Output ($DeploymentScriptOutputs | ConvertTo-Json -Depth 10)
