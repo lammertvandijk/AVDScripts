@@ -84,7 +84,7 @@ function validateKeyVaultAvailability {
 validateKeyVaultAvailability -KeyVaultName $KeyVaultName
 Write-Output $output
 # Output the result in JSON format
-$result | ConvertTo-Json -Depth 2
+$output | ConvertTo-Json -Depth 2
 $DeploymentScriptOutputs = @{}
 $DeploymentScriptOutputs['KeyVaultAvailability'] = $output
 
